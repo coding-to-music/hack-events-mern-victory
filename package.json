@@ -1,12 +1,15 @@
 {
-  "name": "checkin",
+  "name": "hack-events-mern-victory",
   "version": "2.0.0",
   "description": "TESC's own check-in system for all TESC orgs and events",
   "main": "index.js",
   "engines": {
-    "node": "8.9.x",
-    "npm": "5.6.x"
+    "node": "16.x"
   },
+  "cacheDirectories": [
+    "node_modules",
+    "client/node_modules"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UCSDTESC/Check-in.git"
@@ -22,7 +25,8 @@
     "heroku-postbuild": "npm run migrate && ./node_modules/.bin/gulp prod --production",
     "test-server": "tsc -P ./src/server/tsconfig.json --outDir /tmp",
     "test-server:unit": "npx jest --runInBand --detectOpenHandles --colors --notify",
-    "gen-server-docs": "npx typedoc --out docs/server src/server/ --tsconfig src/server/tsconfig.json --mode file"
+    "gen-server-docs": "npx typedoc --out docs/server src/server/ --tsconfig src/server/tsconfig.json --mode file",
+    "deploy": "git add . && git commit -m Heroku && git push && git push heroku && heroku logs --tail --remote heroku"
   },
   "homepage": "https://github.com/UCSDTESC/Check-in#readme",
   "dependencies": {
