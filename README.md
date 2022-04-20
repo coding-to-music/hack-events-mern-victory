@@ -169,7 +169,6 @@ git push -u origin main
 
 ```java
 heroku create hack-events-mern-victory
-
 ```
 
 ## Heroku MongoDB Environment Variables
